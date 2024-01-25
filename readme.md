@@ -1,4 +1,4 @@
-# Pokedoku Puzzle Stats Exploit
+# Pokedoku Most-Unique breakdown
 
 This PHP script interacts with the Pokedoku API to retrieve puzzle statistics and display a 3x3 table of Pokémon names based on the obtained data.
 
@@ -23,7 +23,7 @@ https://localhost/pokedoku_poc
 If you want to run the python script you can type the following command in your terminal:
 
 ```python
-python script_name.py puzzle_id auth_token
+python pokedoku.py puzzle_id auth_token
 ```
 
 Execute the script, and it will fetch puzzle statistics and display a 3x3 table of Pokémon names with minimum aggregate counts.
