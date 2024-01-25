@@ -7,12 +7,22 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def print_table(answers):
-    print("Table:")
-    matrix = [answers[i:i+3] for i in range(0, len(answers), 3)]
-    for row in matrix:
-        for value in row:
-            print(f"{value}\t", end="")
-        print()
+    max_len = max(len(str(answer)) for answer in answers)
+    table_width = (max_len + 2) * 3 + 1  # Each cell has a width of (max_len + 2), and there are 3 cells
+
+    horizontal_line = "┌" + "─" * (max_len + 2) + "┬" + "─" * (max_len + 2) + "┬" + "─" * (max_len + 2) + "┐"
+    row_format = "│{:^" + str(max_len + 2) + "}│{:^" + str(max_len + 2) + "}│{:^" + str(max_len + 2) + "}│"
+    separator_line = "├" + "─" * (max_len + 2) + "┼" + "─" * (max_len + 2) + "┼" + "─" * (max_len + 2) + "┤"
+    bottom_line = "└" + "─" * (max_len + 2) + "┴" + "─" * (max_len + 2) + "┴" + "─" * (max_len + 2) + "┘"
+
+    print(horizontal_line)
+    print(row_format.format(*answers[:3]))
+    print(separator_line)
+    print(row_format.format(*answers[3:6]))
+    print(separator_line)
+    print(row_format.format(*answers[6:]))
+    print(bottom_line)
+
 
 
 def get_pokemon_with_minimum_aggregate(answers):
