@@ -1,4 +1,4 @@
-# Pokedoku Puzzle Stats PHP Script
+# Pokedoku Puzzle Stats Exploit
 
 This PHP script interacts with the Pokedoku API to retrieve puzzle statistics and display a 3x3 table of Pokémon names based on the obtained data.
 
