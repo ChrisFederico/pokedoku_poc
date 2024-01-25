@@ -1,9 +1,10 @@
 <?php
 
 // get the token from the headers of the request and replace the following string
-$token = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NDY2MDRkMy04M2NkLTRhZDQtODNhMy01Yzc1OTk1NDA1YmUiLCJ0ZW1wIjp0cnVlLCJlbWFpbCI6bnVsbCwicm9sZSI6IlRFTVAiLCJpYXQiOjE3MDU4NzE0NzEsImV4cCI6MTcwODQ2MzQ3MX0.ZG0J0sztOEreEl7EDpmYnOqD8TI0__hIymRrRDWNP3-kZqct4Yk0aSOdb1tHMBXzXij08Ax9ghGb0ypG-w6I-Q';
+$token = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMmI2NjBjNy1mNWE3LTQ1Y2ItOTI4YS0yZWI4NDY3ZGRmMTIiLCJ0ZW1wIjpmYWxzZSwibmFtZSI6IkNocmlzIEZlZGVyaWNvIiwiZW1haWwiOiJjcmlzdGlhbm8uZmVkZXJpY28uOTJAZ21haWwuY29tIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FDZzhvY0p1S2k1cFJnMzlXRHhSbTkzRm1XTzEzbFRDMUM4VFNCTkhacUJYTlROeUhnPXM5Ni1jIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3MDYyMjA0NTUsImV4cCI6MTcwODgxMjQ1NX0.pj3PbniCrtb9rTDqmSGWGa4_GqLAKojDE1tH_DRuFNrmIRYHgXHWNeZnhr4X7bNBKVFsWSLZ9EeBoplN7knXAQ';
 
-$puzzle = get_pokedoku_stats($token);
+$puzzle_id = 177;
+$puzzle = get_pokedoku_stats($token, $puzzle_id);
 
 foreach($puzzle->answerStats as $slot => $answers) {
     $aggregates = $answers->answerAggregates;
@@ -42,10 +43,10 @@ function get_pokemon_with_minimum_aggregate($answers) {
     return $pokemon;
 }
 
-function get_pokedoku_stats($token) {    
+function get_pokedoku_stats($token, $puzzle_id) {    
     $ch = curl_init();
 
-    curl_setopt($ch, CURLOPT_URL, 'https://api.pokedoku.com/api/puzzle/stats/173');
+    curl_setopt($ch, CURLOPT_URL, 'https://api.pokedoku.com/api/puzzle/stats/' . $puzzle_id);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 

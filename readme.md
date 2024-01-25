@@ -4,10 +4,26 @@ This PHP script interacts with the Pokedoku API to retrieve puzzle statistics an
 
 ## Usage
 
+### PHP
+
 Replace the placeholder token in the script with a valid authentication token. Ensure that you have the necessary permissions to access the Pokedoku API.
 
 ```php
 $token = 'YOUR_AUTH_TOKEN_HERE';
+```
+
+clone the repository and paste it in your MAMP directory (mine was C:\MAMP\htdocs) or in your local server, then navigate with your browser at the page
+
+```
+https://localhost/pokedoku_poc
+```
+
+### Python
+
+If you want to run the python script you can type the following command in your terminal:
+
+```python
+python script_name.py puzzle_id auth_token
 ```
 
 Execute the script, and it will fetch puzzle statistics and display a 3x3 table of Pokémon names with minimum aggregate counts.
